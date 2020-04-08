@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App'
 
 import store from './store'
-import './static/common.css'
 Vue.config.productionTip = false
 
 Vue.prototype.$store = store

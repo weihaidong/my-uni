@@ -13,6 +13,7 @@ export default {
 </script>
 
 <style>
+@import url("./static/common.css");
 /* 解决头条小程序组件内引入字体不生效的问题 */
 /* #ifdef MP-TOUTIAO */
 @font-face {
@@ -26,6 +27,5 @@ export default {
 		display: flex;
 		font-size: 16px;
 	}
-
 	/* #ifdef MP-BAIDU */
 </style>
