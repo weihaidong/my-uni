@@ -5,7 +5,62 @@
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
-		}, {
+		}, 
+		{
+			"path": "pages/main/main1",
+			"style": {
+				"navigationBarTitleText": "基本资料"
+			}
+		}, 
+		{
+			"path": "pages/main/main2",
+			"style": {
+				"navigationBarTitleText": "工资管理"
+			}
+		}, 
+		{
+			"path": "pages/main/main3",
+			"style": {
+				"navigationBarTitleText": "招兵买马"
+			}
+		}, 
+		{
+			"path": "pages/main/main4",
+			"style": {
+				"navigationBarTitleText": "预约购房"
+			}
+		}, 
+		{
+			"path": "pages/main/main5",
+			"style": {
+				"navigationBarTitleText": "个人业绩"
+			}
+		}, 
+		{
+			"path": "pages/main/main6",
+			"style": {
+				"navigationBarTitleText": "小组业绩"
+			}
+		}, 
+		{
+			"path": "pages/main/main7",
+			"style": {
+				"navigationBarTitleText": "团队业绩"
+			}
+		}, 
+		{
+			"path": "pages/main/main8",
+			"style": {
+				"navigationBarTitleText": "每周答题"
+			}
+		}, 
+		{
+			"path": "pages/main/main9",
+			"style": {
+				"navigationBarTitleText": "规章制度"
+			}
+		}, 
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录"

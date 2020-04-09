@@ -1,62 +1,28 @@
 <template>
 	<view class="content">
-		<uni-swiper-dot :info="info" :current="current" :mode="mode" :dots-styles="dotsStyles" field="content">
-			<swiper class="swiper-box" @change="changeBox">
-				<swiper-item v-for="(item, index) in info" :key="index">
+		<uni-swiper-dot :info="swiperInfo" :current="current" :mode="mode" :dots-styles="dotsStyles" field="content">
+			<swiper class="swiper-box">
+				<swiper-item v-for="(item, index) in swiperInfo" :key="index">
 					<view :class="item.colorClass" class="swiper-item">
 						<image class="image" :src="item.url" mode="aspectFill" />
 					</view>
 				</swiper-item>
 			</swiper>
 		</uni-swiper-dot>
-		<uni-section title="模式选择" type="line"></uni-section>
-		<view class="example-body">
-			<view :class="{ active: modeIndex === 0 }" class="example-body-item" @click="selectMode('default', 0)"><text class="example-body-item-text">default</text></view>
-			<view :class="{ active: modeIndex === 1 }" class="example-body-item" @click="selectMode('dot', 1)"><text class="example-body-item-text">dot</text></view>
-			<view :class="{ active: modeIndex === 2 }" class="example-body-item" @click="selectMode('round', 2)"><text class="example-body-item-text">round</text></view>
-			<view :class="{ active: modeIndex === 3 }" class="example-body-item" @click="selectMode('nav', 3)"><text class="example-body-item-text">nav</text></view>
-			<view :class="{ active: modeIndex === 4 }" class="example-body-item" @click="selectMode('indexes', 4)"><text class="example-body-item-text">indexes</text></view>
-		</view>
-		<uni-section title="颜色样式选择" type="line"></uni-section>
-		<view class="example-body">
-			<template v-if="mode !== 'nav'">
-				<view v-for="(item, index) in dotStyle" :class="{ active: styleIndex === index }" :key="index" class="example-body-item"
-				 @click="selectStyle(index)">
-					<view :style="{ 'background-color': item.selectedBackgroundColor, border: item.selectedBorder }" class="example-body-dots" />
-					<view :style="{ 'background-color': item.backgroundColor, border: item.border }" class="example-body-dots" />
-					<view :style="{ 'background-color': item.backgroundColor, border: item.border }" class="example-body-dots" />
-				</view>
-			</template>
-			<template v-if="mode === 'nav'">
-				<view v-for="(item, index) in dotStyle" :class="{ active: styleIndex === index }" :key="index" :style="{ 'background-color': item.selectedBackgroundColor }"
-				 class="example-body-item" @click="selectStyle(index)">
-					<text class="example-body-item-text" :style="{ color: item.color }">内容</text>
-				</view>
-			</template>
-		</view>
 
-
-		<view v-if="hasLogin" class="hello">
-			<view class="title">
-				您好 {{userName}}，您已成功登录。
-			</view>
-			<view class="ul">
-				<view>这是 uni-app 带登录模板的示例App首页。</view>
-				<view>在 “我的” 中点击 “退出” 可以 “注销当前账户”</view>
-			</view>
-		</view>
-		<view v-if="!hasLogin" class="hello">
-			<view class="title">
-				您好 游客。
-			</view>
-			<view class="ul">
-				<view>这是 uni-app 带登录模板的示例App首页。</view>
-				<view>在 “我的” 中点击 “登录” 可以 “登录您的账户”</view>
+		<view class="menu_item" v-for="(item, index) in menuData" :key="index">
+			<view class="menu_header">{{item.title}}</view>
+			<view class="menu_list">
+				<navigator class="menu_nav"  v-for="(v, i) in item.list" :key="i" :url="v.url" hover-class="active">
+                    <view class="menu_img">
+						<img :src="v.img">
+					</view>
+					<text>{{v.text}}</text>
+                </navigator>
 			</view>
 		</view>
-
 		<!-- 弹出 -->
-		<uni-popup ref="showtip" :type="type" :mask-click="false" @change="change">
+		<uni-popup ref="showtip" :type="popupType" :mask-click="false">
 			<view class="uni-tip">
 				<text class="uni-tip-title">未登录</text>
 				<text class="uni-tip-content">您未登录，需要登录后才能继续</text>
@@ -78,7 +44,34 @@
 		computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
 		data(){
 			return {
-				info: [{
+				menuData:[
+					{
+						title:'个人中心',
+						list:[
+							{img:'',text:'基本资料',url:'/pages/main/main1'},
+							{img:'',text:'工资管理',url:'/pages/main/main2'},
+							{img:'',text:'招兵买马',url:'/pages/main/main3'},
+							{img:'',text:'预约购房',url:'/pages/main/main4'},
+						]
+					},
+					{
+						title:'业绩中心',
+						list:[
+							{img:'',text:'个人业绩',url:'/pages/main/main5'},
+							{img:'',text:'小组业绩',url:'/pages/main/main6'},
+							{img:'',text:'团队业绩',url:'/pages/main/main7'},
+						]
+					},
+					{
+						title:'学习中心',
+						list:[
+							{img:'',text:'每周答题',url:'/pages/main/main8'},
+							{img:'',text:'规章制度',url:'/pages/main/main9'},
+						]
+					},
+
+				],
+				swiperInfo: [{
 						colorClass: 'uni-bg-red',
 						url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg',
 						content: '内容 A'
@@ -94,64 +87,32 @@
 						content: '内容 C'
 					}
 				],
-				dotStyle: [{
-						backgroundColor: 'rgba(0, 0, 0, .3)',
-						border: '1px rgba(0, 0, 0, .3) solid',
-						color: '#fff',
-						selectedBackgroundColor: 'rgba(0, 0, 0, .9)',
-						selectedBorder: '1px rgba(0, 0, 0, .9) solid'
-					},
-					{
-						backgroundColor: 'rgba(255, 90, 95,0.3)',
-						border: '1px rgba(255, 90, 95,0.3) solid',
-						color: '#fff',
-						selectedBackgroundColor: 'rgba(255, 90, 95,0.9)',
-						selectedBorder: '1px rgba(255, 90, 95,0.9) solid'
-					},
-					{
-						backgroundColor: 'rgba(83, 200, 249,0.3)',
-						border: '1px rgba(83, 200, 249,0.3) solid',
-						color: '#fff',
-						selectedBackgroundColor: 'rgba(83, 200, 249,0.9)',
-						selectedBorder: '1px rgba(83, 200, 249,0.9) solid'
-					}
-				],
-				modeIndex: -1,
-				styleIndex: -1,
-				current: 0,
-				mode: 'default',
-				dotsStyles: {}
+				popupType:'',//top,bottom,center
+				current: 0,//当前激活
+				mode: 'dot',//default,dot,round,nav,indexes
+				dotsStyles: {//圆点样式
+					backgroundColor: 'rgba(0, 0, 0, .3)',
+					border: '1px rgba(0, 0, 0, .3) solid',
+					color: '#fff',
+					selectedBackgroundColor: 'rgba(0, 0, 0, .9)',
+					selectedBorder: '1px rgba(0, 0, 0, .9) solid'
+				}
 			}
 		},
 		onLoad() {
-			if (!this.hasLogin) {
-				this.togglePopup('center', 'tip')
+			if (!this.hasLogin) {//未登录
+				// this.togglePopup('center', 'tip')
 			}
 		},
 		methods: {
 			togglePopup(type, open) {
-				switch (type) {
-					case 'top':
-						this.content = '顶部弹出 popup'
-						break
-
-					case 'bottom':
-						this.content = '底部弹出 popup'
-						break
-					case 'center':
-						this.content = '居中弹出 popup'
-						break
-				}
-				this.type = type
+				this.popupType = type
 				this.$nextTick(() => {
 					this.$refs['show' + open].open()
 				})
 			},
 			cancel(type) {
 				this.$refs['show' + type].close()
-			},
-			changeBox(e) {
-				console.log('是否打开:' + e.show)
 			},
 			confirm(){
 				if (this.forcedLogin) {
@@ -164,47 +125,52 @@
 					});
 				}
 			},
-			change(e) {
-				uni.showToast({
-					icon: 'none',
-					title: '已发送重置邮件至注册邮箱，请注意查收。',
-					duration: 100
-				});
-				// this.current = e.detail.current
-			},
-			selectStyle(index) {
-				this.dotsStyles = this.dotStyle[index]
-				this.styleIndex = index
-			},
-			selectMode(mode, index) {
-				this.mode = mode
-				this.modeIndex = index
-				this.styleIndex = -1
-				this.dotsStyles = this.dotStyle[0]
-			}
 		}
 	}
 </script>
 
 <style>
-	.hello {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-	}
-
-	.title {
-		color: #8f8f94;
-		margin-top: 25px;
-	}
-
-	.ul {
-		font-size: 15px;
-		color: #8f8f94;
-		margin-top: 25px;
-	}
-
-	.ul>view {
-		line-height: 25px;
-	}
+.menu_item{
+	margin-top: 10px;
+}
+.menu_header{
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #000;
+}
+.menu_list{
+	margin-top: 10px;
+	font-size: 0;
+}
+.menu_nav{
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(25% - 30px / 4);
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px solid #000;
+	margin-right: 10px;
+}
+.menu_list .menu_nav:nth-child(4n){
+	margin-right: 0;
+}
+.menu_img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	margin: 10px auto 0;
+	border: 1px solid #000;
+	overflow: hidden;
+}
+.menu_img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.menu_nav>text{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 14px;
+}
 </style>
