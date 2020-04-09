@@ -48,25 +48,25 @@
 					{
 						title:'个人中心',
 						list:[
-							{img:'',text:'基本资料',url:'/pages/main/main1'},
-							{img:'',text:'工资管理',url:'/pages/main/main2'},
-							{img:'',text:'招兵买马',url:'/pages/main/main3'},
-							{img:'',text:'预约购房',url:'/pages/main/main4'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'基本资料',url:'/pages/main/main1'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'工资管理',url:'/pages/main/main2'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'招兵买马',url:'/pages/main/main3'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'预约购房',url:'/pages/main/main4'},
 						]
 					},
 					{
 						title:'业绩中心',
 						list:[
-							{img:'',text:'个人业绩',url:'/pages/main/main5'},
-							{img:'',text:'小组业绩',url:'/pages/main/main6'},
-							{img:'',text:'团队业绩',url:'/pages/main/main7'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'个人业绩',url:'/pages/main/main5'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'小组业绩',url:'/pages/main/main6'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'团队业绩',url:'/pages/main/main7'},
 						]
 					},
 					{
 						title:'学习中心',
 						list:[
-							{img:'',text:'每周答题',url:'/pages/main/main8'},
-							{img:'',text:'规章制度',url:'/pages/main/main9'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'每周答题',url:'/pages/main/main8'},
+							{img:'http://thirdwx.qlogo.cn/mmopen/vi_32/7c5l6XZAuVN89nTjic4paIJOTTNJuBEnkZnBtKbiaMRNbfRAEaia7MJP7D0FiaJxEEQuAAcbPc365Z5aQgHPiaerUdw/132',text:'规章制度',url:'/pages/main/main9'},
 						]
 					},
 
