@@ -46,9 +46,9 @@
 	padding-right: 90px;
 	padding-left: 10px;
 }
-.uni-input{
+/* .uni-input{
 	height: 29px;
-}
+} */
 .btn_wrapepr{
 	position: absolute;
 	right: 0;

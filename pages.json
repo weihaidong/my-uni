@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页,
+	"pages": [
 		{
 			"path": "pages/main/main",
 			"style": {

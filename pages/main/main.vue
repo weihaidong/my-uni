@@ -9,16 +9,17 @@
 				</swiper-item>
 			</swiper>
 		</uni-swiper-dot>
-
-		<view class="menu_item" v-for="(item, index) in menuData" :key="index">
-			<view class="menu_header">{{item.title}}</view>
-			<view class="menu_list">
-				<navigator class="menu_nav"  v-for="(v, i) in item.list" :key="i" :url="v.url" hover-class="active">
-                    <view class="menu_img">
-						<img :src="v.img">
-					</view>
-					<text>{{v.text}}</text>
-                </navigator>
+		<view class="w_p">
+			<view class="menu_item" v-for="(item, index) in menuData" :key="index">
+				<view class="menu_header">{{item.title}}</view>
+				<view class="menu_list">
+					<navigator class="menu_nav"  v-for="(v, i) in item.list" :key="i" :url="v.url" hover-class="active">
+						<view class="menu_img">
+							<img :src="v.img">
+						</view>
+						<text>{{v.text}}</text>
+					</navigator>
+				</view>
 			</view>
 		</view>
 		<!-- 弹出 -->
